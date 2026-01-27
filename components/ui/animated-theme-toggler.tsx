@@ -7,6 +7,7 @@ import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 import { Button } from "./button"
+import { useMounted } from "@/hooks/use-mounted"
 
 interface AnimatedThemeTogglerProps
   extends React.ComponentPropsWithoutRef<"button"> {
@@ -18,13 +19,20 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
+  /* ✅ SEMUA HOOKS DI ATAS */
+  const mounted = useMounted()
   const { resolvedTheme, setTheme } = useTheme()
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const isDark = resolvedTheme === "dark"
 
   const toggleTheme = useCallback(async () => {
-    if (!buttonRef.current) return
+    if (!mounted || !buttonRef.current) return
+
+    if (!document.startViewTransition) {
+      setTheme(isDark ? "light" : "dark")
+      return
+    }
 
     await document.startViewTransition(() => {
       flushSync(() => {
@@ -56,7 +64,18 @@ export const AnimatedThemeToggler = ({
         pseudoElement: "::view-transition-new(root)",
       }
     )
-  }, [isDark, setTheme, duration])
+  }, [mounted, isDark, setTheme, duration])
+
+  if (!mounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        className={cn("opacity-0", className)}
+        aria-hidden
+      />
+    )
+  }
 
   return (
     <Button

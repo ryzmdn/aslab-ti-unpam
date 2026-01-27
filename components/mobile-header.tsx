@@ -5,7 +5,7 @@ import { Button } from "./ui/button"
 
 export function MobileMenu({ onClose }: { onClose: () => void }) {
   return (
-    <nav className="md:hidden absolute top-full inset-x-0 border-t bg-base-50 shadow-md">
+    <nav className="lg:hidden absolute top-full inset-x-0 border-t bg-base-50 shadow-md">
       <ul className="flex flex-col gap-1 p-4">
         <MobileLink href="/" onClick={onClose}>
           Beranda
