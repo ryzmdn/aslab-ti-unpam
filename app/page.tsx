@@ -2,10 +2,11 @@ import { Container } from "@/components/container";
 import { Figure } from "@/components/figure";
 import { SectionHeader } from "@/components/heading";
 import { Button } from "@/components/ui/button";
+import { ContactCard } from "@/components/ui/contact-card";
 import { CourseCard } from "@/components/ui/course-card";
 import { RoomCard } from "@/components/ui/room-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { activities, courses, rooms } from "@/constants";
+import { activities, contacts, courses, rooms } from "@/constants";
 import { ActivityItem } from "@/types";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -349,6 +350,23 @@ export default function Home() {
           description="Eksplorasi berbagai ruang laboratorium spesifik yang dilengkapi dengan infrastruktur mutakhir untuk mendukung kegiatan praktikum, riset, dan inovasi mahasiswa."
         />
         <Laboratory />
+      </Container>
+
+      <Container
+        as="section"
+        className="space-y-12 px-4 mb-10 pb-10 sm:px-6 lg:px-8 lg:py-10"
+      >
+        <SectionHeader
+          eyebrow="Layanan Bantuan"
+          title="Kontak Pengelola Lab"
+          description="Hubungi tim teknis atau administrasi kami untuk informasi terkait peminjaman ruang, kendala fasilitas, atau konsultasi kegiatan praktikum."
+        />
+
+        <ul className="mx-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2">
+          {contacts.map((item) => (
+            <ContactCard key={item.title} {...item} />
+          ))}
+        </ul>
       </Container>
     </>
   );
