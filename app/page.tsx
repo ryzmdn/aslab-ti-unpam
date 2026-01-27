@@ -27,7 +27,10 @@ const HERO_IMAGES = [
 
 function HeroContent() {
   return (
-    <Container as="section" className="relative w-full lg:max-w-3xl xl:max-w-3xl">
+    <Container
+      as="section"
+      className="relative w-full lg:max-w-3xl xl:max-w-3xl"
+    >
       <a
         href="https://github.com/asistenlabunpam"
         target="_blank"
@@ -80,7 +83,10 @@ function HeroContent() {
 
 function HeroGallery() {
   return (
-    <Container as="section" className="grid w-full grid-cols-2 gap-2 py-20 lg:p-16">
+    <Container
+      as="section"
+      className="grid w-full grid-cols-2 gap-2 py-20 lg:p-16"
+    >
       {HERO_IMAGES.map((img, index) => (
         <div
           key={img.src}
@@ -102,12 +108,113 @@ function HeroGallery() {
   );
 }
 
+function About() {
+  return (
+    <>
+      <h2 className="scroll-m-20 text-3xl font-semibold text-base-foreground-100 tracking-tight first:mt-0">
+        Tentang Kami
+      </h2>
+
+      <Container as="section" className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+        <div className="space-y-8 lg:w-full lg:max-w-3xl lg:flex-auto xl:max-w-4xl">
+          <p className="text-xl/8 text-base-foreground-400">
+            Asisten Laboratorium Teknik Informatika adalah tim pendukung
+            praktikum di lingkungan kampus yang terdiri dari mahasiswa terpilih
+            melalui proses seleksi ketat. Mereka memiliki komitmen tinggi
+            terhadap tanggung jawab akademik dan organisasi, serta berperan
+            membantu dosen dalam pelaksanaan praktikum.
+          </p>
+          <p className="text-base/7 text-base-foreground-300">
+            Tugas utama aslab meliputi membimbing peserta praktikum dalam
+            memahami materi dan instruksi, menjawab pertanyaan teknis mahasiswa,
+            serta menyiapkan peralatan, komputer, software, dan jaringan sebelum
+            praktikum dimulai. Selain itu, aslab juga mengawasi jalannya
+            kegiatan praktikum untuk memastikan aturan laboratorium dipatuhi dan
+            penggunaan peralatan berlangsung aman. Mereka turut bertanggung
+            jawab dalam pemeliharaan peralatan dan software agar tetap berfungsi
+            dengan baik, serta membantu pencatatan inventaris laboratorium.
+          </p>
+        </div>
+        
+        <div className="lg:flex lg:flex-auto lg:justify-center">
+          <dl className="flex items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
+            {[
+              { label: "Asisten Laboratorium", value: 0 },
+              { label: "Ruang Laboratorium", value: 0 },
+              { label: "Mata Kuliah", value: 0 },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col-reverse gap-y-3 pl-7 border-l border-base-300"
+              >
+                <dt className="text-base/7 text-base-foreground-400">
+                  {stat.label}
+                </dt>
+                <dd className="text-5xl font-semibold tracking-tight text-base-foreground-200">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Container>
+
+      <Container as="section" className="flow-root space-y-10 my-8 py-8 w-full max-w-3xl">
+        <div className="bg-base-50 space-y-5 h-max">
+          <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+            Visi Kami
+          </h3>
+          <p className="text-base/7 text-base-foreground-400">
+            Menjadi pendukung kegiatan mahasiswa dengan perkuliahan berbasis
+            praktik pada Program Studi Teknik Informatika Universitas Pamulang,
+            guna mendorong kemajuan belajar dan inovasi di lingkungan kampus.
+          </p>
+        </div>
+        <div className="bg-base-50 space-y-5 h-max">
+          <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+            Misi Kami
+          </h3>
+          <ol className="list-decimal text-base/7 text-base-foreground-400 ml-6 [&>li]:mt-2">
+            <li>
+              Memberikan dukungan teknis dan sumber daya perkuliahan berbasis
+              praktik yang dibutuhkan oleh mahasiswa dan dosen.
+            </li>
+            <li>
+              Membangun komunitas belajar yang ramah, di mana setiap anggota
+              dapat saling berbagi pengetahuan.
+            </li>
+            <li>
+              Menyelenggarakan pelatihan dan workshop untuk meningkatkan
+              keterampilan teknis dan profesionalisme anggota.
+            </li>
+            <li>
+              Menyediakan akses mudah untuk informasi terkait penggunaan lab dan
+              kegiatan perkuliahan berbasis praktikum.
+            </li>
+            <li>
+              Aktif berkontribusi menjalin kerjasama pada berbagai kegiatan di
+              program studi teknik informatika.
+            </li>
+          </ol>
+        </div>
+      </Container>
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      <Container as="section" className="relative px-4 py-24 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:py-20">
+      <Container
+        as="section"
+        className="relative px-4 py-24 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:py-20"
+      >
         <HeroContent />
         <HeroGallery />
+      </Container>
+
+      <Container className="px-4 sm:px-6 lg:px-8 lg:py-10">
+        <About />
       </Container>
     </>
   );
