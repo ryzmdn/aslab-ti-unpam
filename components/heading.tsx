@@ -19,7 +19,7 @@ export function SectionHeader({
   return (
     <section
       className={cn(
-        "bg-transparent px-6 py-24 sm:py-32 lg:px-8",
+        "bg-transparent px-4 sm:px-6 lg:px-8",
         className
       )}
       {...props}
@@ -36,12 +36,12 @@ export function SectionHeader({
           </p>
         )}
 
-        <h2 className="scroll-m-20 text-4xl text-base-100 font-semibold tracking-tight first:mt-0">
+        <h2 className="scroll-m-20 text-4xl text-base-foreground-100 font-semibold tracking-tight mt-3 mb-5 first:mt-0">
           {title}
         </h2>
 
         {description && (
-          <p className="mt-8 text-base/7 font-medium text-pretty text-base-foreground-300 sm:text-lg/8">
+          <p className="text-base/7 font-medium text-pretty text-base-foreground-300 sm:text-lg/8">
             {description}
           </p>
         )}
