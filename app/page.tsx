@@ -1,5 +1,8 @@
 import { Container } from "@/components/container";
+import { SectionHeader } from "@/components/heading";
 import { Button } from "@/components/ui/button";
+import { CourseCard } from "@/components/ui/course-card";
+import { courses } from "@/constants";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,7 +118,10 @@ function About() {
         Tentang Kami
       </h2>
 
-      <Container as="section" className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+      <Container
+        as="section"
+        className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row"
+      >
         <div className="space-y-8 lg:w-full lg:max-w-3xl lg:flex-auto xl:max-w-4xl">
           <p className="text-xl/8 text-base-foreground-400">
             Asisten Laboratorium Teknik Informatika adalah tim pendukung
@@ -135,7 +141,7 @@ function About() {
             dengan baik, serta membantu pencatatan inventaris laboratorium.
           </p>
         </div>
-        
+
         <div className="lg:flex lg:flex-auto lg:justify-center">
           <dl className="flex items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
             {[
@@ -159,7 +165,10 @@ function About() {
         </div>
       </Container>
 
-      <Container as="section" className="flow-root space-y-10 my-8 py-8 w-full max-w-3xl">
+      <Container
+        as="section"
+        className="flow-root space-y-10 my-8 py-8 w-full max-w-3xl"
+      >
         <div className="bg-base-50 space-y-5 h-max">
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             Visi Kami
@@ -202,19 +211,48 @@ function About() {
   );
 }
 
+function Course() {
+  return (
+    <Container
+      as="section"
+      className="grid grid-cols-2 gap-x-5 gap-y-8 lg:grid-cols-3"
+    >
+      {courses.map((course) => (
+        <CourseCard
+          key={course.name}
+          name={course.name}
+          description={course.description}
+          semester={course.semester}
+          sks={course.sks}
+          icon={course.icon}
+        />
+      ))}
+    </Container>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <Container
-        as="section"
+        as="div"
         className="relative px-4 py-24 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:py-20"
       >
         <HeroContent />
         <HeroGallery />
       </Container>
 
-      <Container className="px-4 sm:px-6 lg:px-8 lg:py-10">
+      <Container as="div" className="px-4 sm:px-6 lg:px-8 lg:py-10">
         <About />
+      </Container>
+
+      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+        <SectionHeader
+          eyebrow="Kurikulum Praktikum"
+          title="Mata Kuliah Laboratorium"
+          description="Daftar mata kuliah berbasis praktikum yang dirancang untuk menyelaraskan teori akademik dengan implementasi teknologi terkini di industri."
+        />
+        <Course />
       </Container>
     </>
   );
