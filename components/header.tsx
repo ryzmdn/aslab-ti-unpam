@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import Image from "next/image"
+import * as React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,9 +11,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/navigation-menu";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react"
+import { MobileMenu } from "./mobile-header";
+import { Button } from "./ui/button";
 
 const PROFILE_MENU = [
   {
@@ -25,8 +28,7 @@ const PROFILE_MENU = [
   {
     title: "Struktur Organisasi",
     href: "/struktur-organisasi",
-    description:
-      "Susunan organisasi Laboratorium Komputer.",
+    description: "Susunan organisasi Laboratorium Komputer.",
   },
 ];
 
@@ -64,13 +66,33 @@ const INFO_MENU = [
 ];
 
 export function Header() {
+  const [open, setOpen] = React.useState(false)
+
   return (
     <header className="absolute inset-x-0 top-0 z-50 bg-base-50">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
-        <MainNavigation />
-        <HeaderActions />
+
+        <div className="hidden lg:block">
+          <MainNavigation />
+        </div>
+
+        <div className="flex items-center gap-x-2">
+          <AnimatedThemeToggler />
+
+          <Button
+            variant="outline"
+            size="icon-lg"
+            className="lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X /> : <Menu />}
+          </Button>
+        </div>
       </div>
+
+      {open && <MobileMenu onClose={() => setOpen(false)} />}
     </header>
   )
 }
@@ -87,7 +109,7 @@ function Logo() {
         className="h-8 w-auto"
       />
     </Link>
-  )
+  );
 }
 
 function MainNavigation() {
@@ -104,46 +126,35 @@ function MainNavigation() {
         <NavLink href="/kontak">Kontak</NavLink>
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
-
-function HeaderActions() {
-  return (
-    <div className="flex items-center gap-x-4">
-      <AnimatedThemeToggler />
-    </div>
-  )
+  );
 }
 
 function NavLink({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
     <NavigationMenuItem>
-      <NavigationMenuLink
-        asChild
-        className={navigationMenuTriggerStyle()}
-      >
+      <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
         <Link href={href}>{children}</Link>
       </NavigationMenuLink>
     </NavigationMenuItem>
-  )
+  );
 }
 
 function NavDropdown({
   title,
   items,
 }: {
-  title: string
+  title: string;
   items: {
-    title: string
-    href: string
-    description: string
-  }[]
+    title: string;
+    href: string;
+    description: string;
+  }[];
 }) {
   return (
     <NavigationMenuItem>
@@ -156,7 +167,7 @@ function NavDropdown({
         </ul>
       </NavigationMenuContent>
     </NavigationMenuItem>
-  )
+  );
 }
 
 function NavDropdownItem({
@@ -164,9 +175,9 @@ function NavDropdownItem({
   href,
   description,
 }: {
-  title: string
-  href: string
-  description: string
+  title: string;
+  href: string;
+  description: string;
 }) {
   return (
     <li>
@@ -175,7 +186,7 @@ function NavDropdownItem({
           href={href}
           className={cn(
             "block rounded-md p-3 text-sm transition-colors",
-            "hover:bg-accent hover:text-accent-foreground"
+            "hover:bg-accent hover:text-accent-foreground",
           )}
         >
           <div className="font-medium leading-none">{title}</div>
@@ -185,5 +196,5 @@ function NavDropdownItem({
         </Link>
       </NavigationMenuLink>
     </li>
-  )
+  );
 }
