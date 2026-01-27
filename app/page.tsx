@@ -2,7 +2,8 @@ import { Container } from "@/components/container";
 import { SectionHeader } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { CourseCard } from "@/components/ui/course-card";
-import { courses } from "@/constants";
+import { RoomCard } from "@/components/ui/room-card";
+import { courses, rooms } from "@/constants";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -231,6 +232,26 @@ function Course() {
   );
 }
 
+function Laboratory() {
+  return (
+    <Container
+      as="section"
+      className="grid grid-cols-1 px-4 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {rooms.map((room) => (
+        <RoomCard
+          key={room.number}
+          number={room.number}
+          code={room.code}
+          image={room.image}
+          description={room.description}
+          location={room.location}
+        />
+      ))}
+    </Container>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -253,6 +274,15 @@ export default function Home() {
           description="Daftar mata kuliah berbasis praktikum yang dirancang untuk menyelaraskan teori akademik dengan implementasi teknologi terkini di industri."
         />
         <Course />
+      </Container>
+
+      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+        <SectionHeader
+          eyebrow="Fasilitas Unggulan"
+          title="Ruang Laboratorium Terpadu"
+          description="Eksplorasi berbagai ruang laboratorium spesifik yang dilengkapi dengan infrastruktur mutakhir untuk mendukung kegiatan praktikum, riset, dan inovasi mahasiswa."
+        />
+        <Laboratory />
       </Container>
     </>
   );
