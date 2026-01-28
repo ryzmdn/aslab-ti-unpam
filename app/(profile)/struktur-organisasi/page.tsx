@@ -17,7 +17,7 @@ export default function Page() {
         className="w-full max-w-4xl mx-auto text-center bg-transparent px-4 mb-24 sm:px-6 lg:px-8"
       >
         <Figure
-          image="/images/struktur_organisasi.png"
+          image="/images/struktur_organisasi.webp"
           imageProps={{
             width: "400",
             height: "800",
