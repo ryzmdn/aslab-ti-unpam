@@ -199,7 +199,7 @@ export default async function Content({
             Related Posts
           </h2>
           <Button variant="outline" asChild>
-            <Link href="/blog/category/all?page=1">
+            <Link href="/berita-acara">
               View All <ArrowRight />
             </Link>
           </Button>
@@ -212,7 +212,6 @@ export default async function Content({
               featuredImage={post._embedded?.["wp:featuredmedia"]?.[0]}
               title={post.title.rendered}
               url={post.slug}
-              category={post._embedded?.["wp:term"]?.[0]?.[0].name}
               date={post.date}
             />
           ))}

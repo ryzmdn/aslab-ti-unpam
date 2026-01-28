@@ -6,7 +6,6 @@ import { formatDate, decodeHtmlEntities } from "@/lib/utils";
 interface Props {
   date: string;
   url: string;
-  category?: string;
   title: string;
   featuredImage?: {
     source_url: string;
@@ -18,24 +17,19 @@ export function Card({
   featuredImage,
   title,
   date,
-  category,
   url,
 }: Readonly<Props>) {
   return (
     <article className="group relative flex flex-col items-start justify-between">
       {featuredImage && (
-        <div className="relative aspect-video overflow-hidden rounded-2xl sm:aspect-2/1 lg:aspect-3/2">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl sm:aspect-2/1 lg:aspect-3/2">
           <Image
             src={featuredImage.source_url}
             alt="Featured image"
             loading="lazy"
-            width={1200}
-            height={800}
+            fill
             className="object-cover group-hover:scale-105"
           />
-          <div className="absolute top-5 left-5 z-10 text-sm font-medium capitalize px-3 py-1.5 rounded-md">
-            {category}
-          </div>
         </div>
       )}
       <div className="grid grid-cols-2 gap-x-3 text-sm/6 font-medium mt-3">
