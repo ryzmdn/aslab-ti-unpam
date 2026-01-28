@@ -28,7 +28,6 @@ export default async function Page() {
                 featuredImage={post._embedded?.["wp:featuredmedia"]?.[0]}
                 title={post.title.rendered}
                 url={post.slug}
-                category={post._embedded?.["wp:term"]?.[0]?.[0].name}
                 date={post.date}
               />
             ))}

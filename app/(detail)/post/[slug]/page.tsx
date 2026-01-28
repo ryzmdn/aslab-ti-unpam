@@ -10,7 +10,7 @@ import {
 } from "@/components/DynamicBreadcrumb";
 import { Container } from "@/components/container";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -144,7 +144,7 @@ export default async function Content({
       <Container
         as="div"
         id="content-section"
-        className="w-full max-w-7xl mx-auto px-4 text-base text-gray-700 dark:text-gray-300 space-y-6 pt-24 pb-10 sm:px-6 lg:px-8"
+        className="w-full max-w-4xl mx-auto px-4 text-base text-base-foreground-400 space-y-6 pt-4 pb-10 sm:px-6 lg:px-8"
       >
         <header
           id={`header-${post.title.rendered.replace(/ /gi, "-").toLowerCase()}`}
@@ -157,23 +157,30 @@ export default async function Content({
               { label: convertEncode(post.title.rendered) },
             ])}
           />
-          <h1 className="text-4xl/tight font-semibold tracking-tight text-pretty text-gray-800 dark:text-gray-200 mb-3.5 sm:text-5xl/tight">
+          <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight text-balance text-base-foreground-100 sm:text-5xl">
             {convertEncode(post.title.rendered)}
           </h1>
-          <div className="flex items-center gap-x-4">
-            <p>
-              {category
-                ? category.charAt(0).toUpperCase() +
-                  category.slice(1).toLowerCase()
-                : "Uncategorized"}
-            </p>
+
+          <div className="flex items-center gap-x-3">
+            <div className="flex items-center gap-x-2">
+              <User className="size-3.5" />
+              <p>
+                {category
+                  ? category.charAt(0).toUpperCase() +
+                    category.slice(1).toLowerCase()
+                  : "Uncategorized"}
+              </p>
+            </div>
             <span>&ndash;</span>
-            <p>{formatDate(post.date)}</p>
+            <div className="flex items-center gap-x-2">
+              <CalendarDays className="size-3.5" />
+              <p>{formatDate(post.date)}</p>
+            </div>
           </div>
         </header>
 
         <div className="size-full space-y-16 mt-5">
-          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          <div className="text-base/7 blog-content" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
        
           <footer className="w-full py-7">
           <h5 className="text-base/7 font-semibold">Tags</h5>
@@ -199,7 +206,7 @@ export default async function Content({
             Related Posts
           </h2>
           <Button variant="outline" asChild>
-            <Link href="/blog/category/all?page=1">
+            <Link href="/berita-acara?page=1">
               View All <ArrowRight />
             </Link>
           </Button>
@@ -212,7 +219,6 @@ export default async function Content({
               featuredImage={post._embedded?.["wp:featuredmedia"]?.[0]}
               title={post.title.rendered}
               url={post.slug}
-              category={post._embedded?.["wp:term"]?.[0]?.[0].name}
               date={post.date}
             />
           ))}
