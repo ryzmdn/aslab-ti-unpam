@@ -15,6 +15,8 @@ export default function Page() {
       <Container as="section" className="w-full bg-transparent px-4 mb-24 sm:px-6 lg:px-8">
         <Figure
           image="/images/denah_lab.webp"
+          imageProps={{ fill: true }}
+          imageWrapperClassName="relative aspect-video"
           caption="Denah Lantai 8 Gedung C, Kampus Viktor, Program Studi Teknik Informatika Universitas Pamulang."
         />
       </Container>
