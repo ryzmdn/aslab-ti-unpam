@@ -206,7 +206,7 @@ export default async function Content({
             Related Posts
           </h2>
           <Button variant="outline" asChild>
-            <Link href="/berita-acara?page=1">
+            <Link href="/berita-acara">
               View All <ArrowRight />
             </Link>
           </Button>

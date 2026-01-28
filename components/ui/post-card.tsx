@@ -6,7 +6,6 @@ import { formatDate, decodeHtmlEntities } from "@/lib/utils";
 interface Props {
   date: string;
   url: string;
-  category?: string;
   title: string;
   featuredImage?: {
     source_url: string;
