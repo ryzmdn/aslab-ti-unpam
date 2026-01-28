@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -161,7 +161,92 @@
   }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
+@layer utilities {
+  * {
+    @apply transition-all duration-200 ease-linear;
+  }
+
+  section,
+  article {
+    content-visibility: auto;
+  }
+
+  .blog-content figure {
+    @apply my-3.5 w-full;
+  }
+  .blog-content img {
+    @apply object-cover;
+  }
+  .blog-content figure > img {
+    @apply aspect-video rounded-xl bg-base-50 object-cover;
+  }
+  .blog-content figure > figcaption {
+    @apply mt-4 text-sm/6 text-base-foreground-400;
+  }
+
+  .blog-content p {
+    @apply text-base text-base-foreground-300 leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  .blog-content h2 {
+    @apply text-3xl font-semibold tracking-tight text-pretty text-base-100;
+  }
+  .blog-content h3 {
+    @apply text-2xl font-semibold tracking-tight text-base-foreground-200;
+  }
+  .blog-content h4 {
+    @apply text-xl font-semibold tracking-tight text-base-foreground-200;
+  }
+
+  .blog-content pre {
+    @apply font-mono bg-base-200 p-2 rounded-lg overflow-x-auto ring-1 ring-inset ring-base-200;
+  }
+  .blog-content pre > code {
+    @apply bg-transparent text-sm text-base-foreground-200;
+  }
+
+  .blog-content code {
+    @apply font-mono text-sm bg-base-100 p-0.5 rounded;
+  }
+
+  .blog-content ul {
+    @apply list-disc my-2 pl-4;
+  }
+  .blog-content ol {
+    @apply list-decimal my-2 pl-4;
+  }
+  .blog-content li {
+    @apply text-base-foreground-300 mt-2.5;
+  }
+
+  .blog-content a {
+    @apply text-base-foreground-200 underline;
+  }
+
+  .blog-content table {
+    @apply min-w-full divide-y divide-base-300;
+  }
+  .blog-content table > th {
+    @apply py-3.5 pl-4 pr-3 text-left text-sm font-medium text-base-foreground-200 sm:pl-0;
+  }
+  .blog-content table > tbody {
+    @apply divide-y divide-base-200;
+  }
+  .blog-content table tbody td {
+    @apply whitespace-nowrap px-3 py-4 text-sm;
+  }
+
+  .blog-content blockquote {
+    @apply font-medium text-base-foreground-200 border-l border-base-foreground-400 pl-8;
+  }
+
+  .blog-content strong {
+    @apply text-base-foreground-100 font-semibold;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }

@@ -22,7 +22,7 @@ export function Card({
   return (
     <article className="group relative flex flex-col items-start justify-between">
       {featuredImage && (
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl sm:aspect-2/1 lg:aspect-3/2">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
           <Image
             src={featuredImage.source_url}
             alt="Featured image"
