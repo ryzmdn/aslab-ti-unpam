@@ -95,7 +95,7 @@ function HeroGallery() {
       as="section"
       className="grid w-full grid-cols-2 gap-2 py-20 lg:p-16"
     >
-      {HERO_IMAGES.map((img, index) => (
+      {HERO_IMAGES.map((img) => (
         <div
           key={img.src}
           className={`relative aspect-square overflow-hidden rounded-lg ${
@@ -106,7 +106,7 @@ function HeroGallery() {
             src={img.src}
             alt={img.alt}
             fill
-            priority={index === 0}
+            priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
