@@ -7,6 +7,7 @@ import { CourseCard } from "@/components/ui/course-card";
 import { RoomCard } from "@/components/ui/room-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { activities, contacts, courses, rooms } from "@/constants";
+import { member } from "@/constants/anggota";
 import { ActivityItem } from "@/types";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -150,9 +151,9 @@ function About() {
         <div className="lg:flex lg:flex-auto lg:justify-center">
           <dl className="flex items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
             {[
-              { label: "Asisten Laboratorium", value: 0 },
-              { label: "Ruang Laboratorium", value: 0 },
-              { label: "Mata Kuliah", value: 0 },
+              { label: "Asisten Laboratorium", value: member.flatMap(item => item.anggota).length },
+              { label: "Ruang Laboratorium", value: rooms.length },
+              { label: "Mata Kuliah", value: courses.length },
             ].map((stat) => (
               <div
                 key={stat.label}
