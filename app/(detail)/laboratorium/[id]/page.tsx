@@ -148,14 +148,7 @@ export default function Page() {
             <TabsContent value="gambar">
               <div className="grid grid-cols-2 gap-2 py-6 sm:grid-cols-3">
                 {ruangan.photos?.map((photo) => (
-                  <div key={photo} className="relative aspect-video">
-                    <ImageDialog
-                      key={photo}
-                      imageSrc={photo}
-                      imageAlt={photo}
-                      animationStyle="from-center"
-                    />
-                  </div>
+                  <ImageDialog key={photo} src={photo} />
                 ))}
               </div>
             </TabsContent>
