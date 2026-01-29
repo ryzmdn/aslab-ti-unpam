@@ -7,6 +7,7 @@ import { CourseCard } from "@/components/ui/course-card";
 import { RoomCard } from "@/components/ui/room-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { activities, contacts, courses, rooms } from "@/constants";
+import { member } from "@/constants/anggota";
 import { ActivityItem } from "@/types";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -95,7 +96,7 @@ function HeroGallery() {
       as="section"
       className="grid w-full grid-cols-2 gap-2 py-20 lg:p-16"
     >
-      {HERO_IMAGES.map((img, index) => (
+      {HERO_IMAGES.map((img) => (
         <div
           key={img.src}
           className={`relative aspect-square overflow-hidden rounded-lg ${
@@ -106,7 +107,7 @@ function HeroGallery() {
             src={img.src}
             alt={img.alt}
             fill
-            priority={index === 0}
+            priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
@@ -150,9 +151,9 @@ function About() {
         <div className="lg:flex lg:flex-auto lg:justify-center">
           <dl className="flex items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
             {[
-              { label: "Asisten Laboratorium", value: 0 },
-              { label: "Ruang Laboratorium", value: 0 },
-              { label: "Mata Kuliah", value: 0 },
+              { label: "Asisten Laboratorium", value: member.flatMap(item => item.anggota).length },
+              { label: "Ruang Laboratorium", value: rooms.length },
+              { label: "Mata Kuliah", value: courses.length },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -172,9 +173,9 @@ function About() {
 
       <Container
         as="section"
-        className="flow-root space-y-10 my-8 py-8 w-full max-w-3xl"
+        className="flow-root space-y-6 my-8 py-8 w-full max-w-3xl"
       >
-        <div className="bg-base-50 space-y-5 h-max">
+        <div className="bg-base-50 space-y-5 p-6 h-max border border-base-200 rounded-2xl">
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             Visi Kami
           </h3>
@@ -184,7 +185,7 @@ function About() {
             guna mendorong kemajuan belajar dan inovasi di lingkungan kampus.
           </p>
         </div>
-        <div className="bg-base-50 space-y-5 h-max">
+        <div className="bg-base-50 space-y-5 p-6 h-max border border-base-200 rounded-2xl">
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             Misi Kami
           </h3>
