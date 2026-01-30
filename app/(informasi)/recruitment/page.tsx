@@ -25,8 +25,8 @@ export const recruitment: RecruitmentData[] = [
     poster: "/images/oprec_1.webp",
     name: "Open Recruitment Asisten Laboratorium 2025 – 2026",
     date: {
-      from: "2025-02-01",
-      to: "2025-12-01",
+      from: "2025-12-04",
+      to: "2025-12-26",
     },
     dialog: {
       title: "Asisten Laboratorium",
