@@ -5,7 +5,7 @@ import { Button } from "./ui/button"
 
 export function MobileMenu({ onClose }: { onClose: () => void }) {
   return (
-    <nav className="lg:hidden absolute top-full inset-x-0 border-t bg-base-50 shadow-md">
+    <nav className="lg:hidden absolute z-50 top-full inset-x-0 border-t bg-base-50 shadow-md">
       <ul className="flex flex-col gap-1 p-4">
         <MobileLink href="/" onClick={onClose}>
           Beranda
@@ -21,7 +21,7 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
         </MobileSection>
 
         <MobileSection title="Informasi">
-          <MobileLink href="/standar-operasional-prosedur" onClick={onClose}>
+          <MobileLink href="/sop" onClick={onClose}>
             Standar Operasional Prosedur
           </MobileLink>
           <MobileLink href="/mata-kuliah" onClick={onClose}>
