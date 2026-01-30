@@ -29,7 +29,7 @@ export const courses: Course[] = [
     name: "Algoritma dan Pemrograman 2",
     description:
       "Lanjutan pemrograman C++ yang mendalami teknik pemecahan masalah kompleks. Mencakup materi rekursi, pointer, alokasi memori dinamis, serta pengenalan algoritma pengurutan (sorting) dan pencarian (searching).",
-    semester: 1,
+    semester: 3,
     sks: 3,
     icon: GitGraph,
   },
@@ -37,7 +37,7 @@ export const courses: Course[] = [
     name: "Struktur Data",
     description:
       "Mempelajari pengorganisasian data secara efisien dalam memori. Mahasiswa mengimplementasikan Linked List, Stack, Queue, Tree, dan Graph menggunakan C++ serta menganalisis efisiensi algoritma (Big O).",
-    semester: 1,
+    semester: 3,
     sks: 3,
     icon: Workflow,
   },
@@ -45,7 +45,7 @@ export const courses: Course[] = [
     name: "Machine Learning",
     description:
       "Mempelajari pengembangan sistem yang mampu belajar dari data. Fokus pada algoritma Supervised Learning (Klasifikasi & Regresi), Unsupervised Learning (Clustering), serta evaluasi akurasi model.",
-    semester: 1,
+    semester: 5,
     sks: 3,
     icon: BrainCircuit,
   },
@@ -53,7 +53,7 @@ export const courses: Course[] = [
     name: "Data Mining",
     description:
       "Mempelajari teknik ekstraksi pengetahuan dari dataset besar. Mencakup preprocessing data, penemuan pola asosiasi, klasifikasi, dan teknik clustering untuk pengambilan keputusan strategis.",
-    semester: 1,
+    semester: 4,
     sks: 3,
     icon: Pickaxe,
   },
@@ -61,7 +61,7 @@ export const courses: Course[] = [
     name: "Basis Data 1",
     description:
       "Dasar-dasar perancangan basis data relasional. Fokus pada pemodelan data (ERD), normalisasi, dan penguasaan bahasa SQL (DDL & DML) untuk memanipulasi data dalam sistem manajemen basis data.",
-    semester: 1,
+    semester: 4,
     sks: 3,
     icon: Database,
   },
@@ -69,7 +69,7 @@ export const courses: Course[] = [
     name: "Basis Data 2",
     description:
       "Lanjutan administrasi basis data yang mencakup optimasi query, penggunaan stored procedures, triggers, keamanan data tingkat lanjut, serta pengenalan konsep database NoSQL.",
-    semester: 1,
+    semester: 6,
     sks: 3,
     icon: DatabaseZap,
   },
@@ -77,7 +77,7 @@ export const courses: Course[] = [
     name: "Jaringan Komputer",
     description:
       "Membahas arsitektur komunikasi data berdasarkan model OSI dan TCP/IP. Mencakup pengalamatan IP, routing, switching, serta protokol jaringan untuk mendukung infrastruktur IT dan internet.",
-    semester: 1,
+    semester: 3,
     sks: 3,
     icon: Network,
   },
@@ -85,7 +85,7 @@ export const courses: Course[] = [
     name: "Cloud Computing",
     description:
       "Mempelajari arsitektur layanan cloud (IaaS, PaaS, SaaS). Fokus pada virtualisasi, manajemen sumber daya awan, dan deployment aplikasi pada platform populer seperti AWS, Azure, atau GCP.",
-    semester: 1,
+    semester: 4,
     sks: 3,
     icon: Cloud,
   },
@@ -93,7 +93,7 @@ export const courses: Course[] = [
     name: "Mobile Programming",
     description:
       "Pengembangan aplikasi untuk perangkat bergerak (Android/iOS). Mahasiswa mempelajari lifecycle aplikasi, desain UI/UX mobile, akses fitur perangkat, dan integrasi API untuk aplikasi mobile.",
-    semester: 1,
+    semester: 6,
     sks: 3,
     icon: Smartphone,
   },
@@ -101,7 +101,7 @@ export const courses: Course[] = [
     name: "Pemrograman Web 1",
     description:
       "Fokus pada pengembangan sisi klien (Client-side scripting). Menguasai HTML5 untuk struktur, CSS3 untuk desain responsif, dan JavaScript murni untuk interaktivitas dasar halaman web.",
-    semester: 1,
+    semester: 5,
     sks: 3,
     icon: Globe,
   },
@@ -109,7 +109,7 @@ export const courses: Course[] = [
     name: "Pemrograman Web 2",
     description:
       "Fokus pada pengembangan sisi server (Server-side scripting). Menggunakan framework web (seperti Laravel/Node.js), manajemen session, autentikasi, dan pembangunan RESTful API.",
-    semester: 1,
+    semester: 7,
     sks: 3,
     icon: GlobeLock,
   },
@@ -117,7 +117,7 @@ export const courses: Course[] = [
     name: "Pemrograman 1",
     description:
       "Mempelajari konsep Pemrograman Berorientasi Objek (OOP) menggunakan Java. Fokus pada sintaks Java, class, object, inheritance, encapsulation, dan polymorphism menggunakan IDE NetBeans.",
-    semester: 1,
+    semester: 4,
     sks: 3,
     icon: Code,
   },
@@ -125,7 +125,7 @@ export const courses: Course[] = [
     name: "Pemrograman 2",
     description:
       "Lanjutan pemrograman Java yang berfokus pada pembangunan aplikasi desktop berbasis GUI (Graphical User Interface) dan konektivitas basis data menggunakan JDBC.",
-    semester: 1,
+    semester: 6,
     sks: 3,
     icon: CodeXml,
   },
