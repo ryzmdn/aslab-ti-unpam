@@ -70,7 +70,6 @@ export function Footer() {
             <FooterLink href="/">Beranda</FooterLink>
             <FooterLink href="/struktur-organisasi">Struktur Organisasi</FooterLink>
             <FooterLink href="/sop">SOP</FooterLink>
-            <FooterLink href="/kegiatan">Kegiatan</FooterLink>
             <FooterLink href="/kontak">Kontak</FooterLink>
           </div>
         </div>
