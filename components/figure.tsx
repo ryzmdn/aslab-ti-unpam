@@ -1,5 +1,4 @@
 import { HTMLAttributes, ReactNode } from "react";
-import Image, { ImageProps } from "next/image";
 import { Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ImageDialog } from "./ui/image-dialog";
@@ -8,7 +7,6 @@ interface FigureProps extends HTMLAttributes<HTMLElement> {
   image: string;
   caption?: ReactNode;
   imageAlt?: string;
-  imageProps?: Omit<ImageProps, "src" | "alt">;
   imageWrapperClassName?: string;
   captionClassName?: string;
   showIcon?: boolean;
@@ -19,7 +17,6 @@ export function Figure({
   image,
   caption,
   imageAlt,
-  imageProps,
   className,
   imageWrapperClassName,
   captionClassName,
@@ -31,8 +28,8 @@ export function Figure({
     <figure className={className} {...props}>
       <div
         className={cn(
-          "relative overflow-hidden rounded-xl",
-          imageWrapperClassName
+          "relative overflow-hidden rounded sm:rouned-lg lg:rounded-xl",
+          imageWrapperClassName,
         )}
       >
         <ImageDialog
@@ -45,7 +42,7 @@ export function Figure({
         <figcaption
           className={cn(
             "mt-4 flex gap-x-2 text-sm/6 text-base-foreground-400",
-            captionClassName
+            captionClassName,
           )}
         >
           {showIcon && (
