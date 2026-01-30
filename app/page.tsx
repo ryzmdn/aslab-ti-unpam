@@ -54,7 +54,8 @@ function HeroContent() {
           />
         </svg>
         <span className="mx-2 h-4 w-px bg-base-200" />
-        Kunjungi repositori open source GitHub ASLAB
+        <span className="hidden sm:block">Kunjungi repositori open source GitHub ASLAB</span>
+        <span className="block sm:hidden">Kunjungi GitHub ASLAB</span>
         <ChevronRight className="group-hover:translate-x-1 ml-1.5 size-3.5" />
       </a>
 
