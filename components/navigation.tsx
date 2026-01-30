@@ -60,7 +60,6 @@ export function MainNavigation() {
         <NavDropdown title="Profil" items={PROFILE_MENU} />
         <NavDropdown title="Informasi" items={INFO_MENU} />
 
-        <NavLink href="/kegiatan">Kegiatan</NavLink>
         <NavLink href="/jadwal-laboratorium">Jadwal</NavLink>
         <NavLink href="/kontak">Kontak</NavLink>
       </NavigationMenuList>
