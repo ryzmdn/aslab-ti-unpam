@@ -322,11 +322,11 @@ export default function Home() {
         <HeroGallery />
       </Container>
 
-      <Container as="div" className="px-4 sm:px-6 lg:px-8 lg:py-10">
+      <Container as="div" className="px-4 py-14 sm:px-6 lg:px-8">
         <About />
       </Container>
 
-      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+      <Container as="div" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Kurikulum Praktikum"
           title="Mata Kuliah Laboratorium"
@@ -335,7 +335,7 @@ export default function Home() {
         <Course />
       </Container>
 
-      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+      <Container as="div" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Aktivitas Lab"
           title="Kegiatan & Dokumentasi"
@@ -344,7 +344,7 @@ export default function Home() {
         <Activity />
       </Container>
 
-      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+      <Container as="div" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Fasilitas Unggulan"
           title="Ruang Laboratorium Terpadu"
@@ -355,7 +355,7 @@ export default function Home() {
 
       <Container
         as="section"
-        className="space-y-12 px-4 mb-10 pb-10 sm:px-6 lg:px-8 lg:py-10"
+        className="space-y-12 px-4 mb-10 pb-10 py-14 sm:px-6 lg:px-8"
       >
         <SectionHeader
           eyebrow="Layanan Bantuan"
